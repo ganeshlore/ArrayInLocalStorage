@@ -1,0 +1,29 @@
+<script src="https://code.jquery.com/jquery-3.0.0.min.js" type="text/javascript"></script>
+
+<div onclick="myFunction()" style="cursor:pointer;">Add to Array in LocalStarage</div>
+
+
+<script>
+function myFunction() {
+    var person = prompt("Please Enter Your Object");
+    storeArrayinLocalStorage(person);
+}
+
+function storeArrayinLocalStorage(data){
+var array = localStorage.getItem("array");
+     var obj = [];
+     if(array){
+         obj= JSON.parse(array);  
+     }
+	 
+	 //console.log(obj.indexOf(data));
+	 ///// if array not exist  ///////////////////////
+	 if(obj.indexOf(data) === -1){
+            obj.push(data);
+            localStorage.setItem("array",JSON.stringify(obj));
+	 }else{
+	 alert('value already set');	 
+	 }
+	 /////////////////////////////////////////////////
+}
+</script>
